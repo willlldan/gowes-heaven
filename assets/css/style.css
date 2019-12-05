@@ -3,3 +3,13 @@
     background-position: center;
     background-size: cover;
   }
+
+  .bg-register-image {
+    background: url("../img/bg-register.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .container-auth {
+      height: 520px;
+  }
