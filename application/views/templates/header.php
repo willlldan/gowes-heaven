@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/ion.rangeSlider.skinFlat.css" />
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/magnific-popup.css">
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/main.css">
+    <link rel="stylesheet" href="<?= base_url('assets/') ?>css/slick.css"/>
+    <link rel="stylesheet" href="<?= base_url('assets/') ?>css/slick-theme.css"/>
+    <link rel="stylesheet" href="<?= base_url('assets/') ?>css/style1.css"/>
 </head>
 
 <body>
