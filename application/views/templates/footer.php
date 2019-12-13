@@ -93,6 +93,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="<?= base_url('assets/') ?>js/gmaps.min.js"></script>
 	<script src="<?= base_url('assets/') ?>js/main.js"></script>
+	<script src="<?= base_url('assets/') ?>js/slick.min.js"></script>
 	</body>
 
 	</html>
