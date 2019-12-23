@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2019 at 10:22 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Dec 23, 2019 at 12:10 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,16 +31,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `product_index` (
   `id` int(11) NOT NULL,
   `nama` varchar(128) NOT NULL,
-  `nama_gambar` varchar(128) NOT NULL
+  `kategori` varchar(128) NOT NULL,
+  `deskripsi` varchar(4096) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `gambar` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_index`
 --
 
-INSERT INTO `product_index` (`id`, `nama`, `nama_gambar`) VALUES
-(1, 'Double Seat Bike', 'doubleSeatBike.jpg'),
-(2, 'Helmet', 'helmet.jpg');
+INSERT INTO `product_index` (`id`, `nama`, `kategori`, `deskripsi`, `harga`, `gambar`) VALUES
+(1, 'Double Seat Bike', 'full bike', 'Sepeda santai untuk digunakan bersama orang terdekat', 900000000, 'doubleSeatBike.jpg'),
+(2, 'Helmet', 'aksesoris', 'Untuk melindungi kepala dari benturan benda keras', 7000000, 'helmet.jpg');
 
 -- --------------------------------------------------------
 
