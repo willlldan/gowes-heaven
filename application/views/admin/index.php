@@ -51,6 +51,17 @@
     <!-- end pesanan pending -->
   </div>
 
+  <!-- tambah produk -->
+  <div class="row">
+    <a href="#" class="btn btn-primary btn-icon-split">
+      <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+      </span>
+      <span class="text">Tambah Produk</span>
+    </a>
+  </div>
+  <!-- end tambah produk -->
+
 
   <!-- end jumlah pesanan -->
 

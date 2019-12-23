@@ -70,7 +70,7 @@
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">
-											<img src="<?= base_url('assets/img/gowes-heaven/') . $pindex['gambar']; ?>" alt="" style="width: 250px;height: 250px;">
+											<img src="<?= base_url('assets/img/product/') . $pindex['gambar']; ?>" alt="" style="width: 250px;height: 250px;">
 											<div class="product-label">
 												<span class="sale">-30%</span>
 												<span class="new">NEW</span>
