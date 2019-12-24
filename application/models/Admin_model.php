@@ -18,4 +18,10 @@ class Admin_model extends CI_Model
         ];
         return $this->db->insert('product_index', $data);
     }
+
+    public function save($data)
+    {
+        $this->db->insert($this->table, $data);
+        return $this->db->insert_id();
+    }
 }

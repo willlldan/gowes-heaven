@@ -49,4 +49,67 @@ class Admin extends CI_Controller
 			redirect('admin');
 		}
 	}
+
+	public function ajax_add()
+	{
+		$this->_validate();
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'kategori' => $this->input->post('kategori'),
+			'deskripsi' => $this->input->post('deskripsi'),
+			'harga' => $this->input->post('harga'),
+			'gambar' => $this->input->post('gambar'),
+		);
+		$insert = $this->person->save($data);
+		echo json_encode(array("status" => TRUE));
+	}
+
+	private function _validate()
+	{
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
+
+		if ($this->input->post('nama') == '') {
+			$data['inputerror'][] = 'nama';
+			$data['error_string'][] = 'Nama tidak boleh kosong !';
+			$data['status'] = FALSE;
+		}
+
+		if ($this->input->post('kategori') == 'kategori') {
+			$data['inputerror'][] = 'kategori';
+			$data['error_string'][] = 'Mohon pilih kategori';
+			$data['status'] = FALSE;
+		}
+
+		if ($this->input->post('deskripsi') == '') {
+			$data['inputerror'][] = 'deskripsi';
+			$data['error_string'][] = 'Deskripsi tidak boleh kosong';
+			$data['status'] = FALSE;
+		}
+
+		if ($this->input->post('harga') == '') {
+			$data['inputerror'][] = 'harga';
+			$data['error_string'][] = 'Harga tidak boleh kosong';
+			$data['status'] = FALSE;
+		}
+
+		// if ($this->input->post('gambar') == '') {
+		// 	$data['inputerror'][] = 'address';
+		// 	$data['error_string'][] = 'Addess is required';
+		// 	$data['status'] = FALSE;
+		// }
+
+		if (is_int($this->input->post('harga'))) {
+			$data['inputerror'][] = 'harga';
+			$data['error_string'][] = 'Harga harus angka';
+			$data['status'] = FALSE;
+		}
+
+		if ($data['status'] === FALSE) {
+			echo json_encode($data);
+			exit();
+		}
+	}
 }

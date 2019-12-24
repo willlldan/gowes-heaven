@@ -53,14 +53,13 @@
 
   <!-- tambah produk -->
   <div class="row ml-1">
-    <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#exampleModal" data-title="Tambah Produk">
+    <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#exampleModal" data-title="Tambah Produk" onclick="add_produk()">
       <span class="icon text-white-10">
         <i class="fas fa-plus-square  mt-1"></i>
       </span>
       <span class="text">Tambah Produk</span>
     </a>
   </div>
-  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
 
   <!-- end tambah produk -->
   <!-- end jumlah pesanan -->
@@ -132,57 +131,3 @@
 
 </div>
 <!-- End of Main Content -->
-
-<!-- start modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form method="post" enctype="multipart/form-data" action="./tambah">
-          <div class="form-group">
-            <label for="nama" class="col-form-label"></label>
-            <input type="text" class="form-control" id="nama" placeholder="Nama Produk" name="nama" required>
-          </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="col-form-label" for="kategori"></label>
-            </div>
-            <select class="form-control" id="kategori" name="kategori">
-              <option selected>kategori</option>
-              <option value="1">fullbike</option>
-              <option value="2">sparepart</option>
-              <option value="3">aksesoris</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <textarea class="form-control" aria-label="With textarea" name="deskripsi" placeholder="deskripsi"></textarea>
-          </div>
-
-          <div class="input-group mb-3 mt-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Rp</span>
-            </div>
-            <input type="text" class="form-control" placeholder="harga" name="harga">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="image">
-              <label class="custom-file-label" name="image" for="image">Choose file</label>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Send message</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end modal -->
