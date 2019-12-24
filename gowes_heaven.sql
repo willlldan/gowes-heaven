@@ -31,29 +31,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `product_index` (
   `id` int(11) NOT NULL,
   `nama` varchar(128) NOT NULL,
-<<<<<<< HEAD
-  `nama_gambar` varchar(128) NOT NULL
-=======
   `kategori` varchar(128) NOT NULL,
   `deskripsi` varchar(4096) NOT NULL,
   `harga` int(11) NOT NULL,
   `gambar` varchar(128) NOT NULL
->>>>>>> 9905f854145f761d539a3ace3268f2fb31f5260d
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_index`
 --
 
-<<<<<<< HEAD
-INSERT INTO `product_index` (`id`, `nama`, `nama_gambar`) VALUES
-(1, 'Double Seat Bike', 'doubleSeatBike.jpg'),
-(2, 'Helmet', 'helmet.jpg');
-=======
 INSERT INTO `product_index` (`id`, `nama`, `kategori`, `deskripsi`, `harga`, `gambar`) VALUES
 (1, 'Double Seat Bike', 'full bike', 'Sepeda santai untuk digunakan bersama orang terdekat', 900000000, 'doubleSeatBike.jpg'),
 (2, 'Helmet', 'aksesoris', 'Untuk melindungi kepala dari benturan benda keras', 7000000, 'helmet.jpg');
->>>>>>> 9905f854145f761d539a3ace3268f2fb31f5260d
 
 -- --------------------------------------------------------
 
