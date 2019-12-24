@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2019 at 12:10 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Dec 24, 2019 at 03:24 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,7 +43,24 @@ CREATE TABLE `product_index` (
 
 INSERT INTO `product_index` (`id`, `nama`, `kategori`, `deskripsi`, `harga`, `gambar`) VALUES
 (1, 'Double Seat Bike', 'full bike', 'Sepeda santai untuk digunakan bersama orang terdekat', 900000000, 'doubleSeatBike.jpg'),
-(2, 'Helmet', 'aksesoris', 'Untuk melindungi kepala dari benturan benda keras', 7000000, 'helmet.jpg');
+(2, 'Helmet', 'aksesoris', 'Untuk melindungi kepala dari benturan benda keras', 7000000, 'helmet.jpg'),
+(3, 'Surly Bike Black', 'fullbike', 'Sepeda produksi Surly digunakan untuk berkendara di area perkotaan maupun pedesaan', 45000000, 'blackSurlyBike.jpg'),
+(4, 'Classic Tire', 'sparepart', 'Ban produksi Table Top dengan warna hitam dan oranye', 340000, 'classicTire.jpeg'),
+(5, 'Element Grey Bike', 'fullbike', 'Sepeda tipe BMX produksi Inspired cocok digunakan untuk freestyle', 6500000, 'elementGreyBike.jpg'),
+(6, 'Gear', 'sparepart', 'Set gear dengan rantai', 450000, 'gear.jpeg'),
+(7, 'Gear Set', 'sparepart', 'Gear crank produksi Shimano', 760000, 'gearSet.jpeg'),
+(8, 'Handle Bar Bag', 'aksesoris', 'Tas dengan ukuran medium digunakan pada handle sepeda', 750000, 'handleBarBag.jpg'),
+(9, 'Karate Monkey Blue', 'fullbike', 'Bike set produksi Surly cocok untuk jalan perkotaan', 9800000, 'KarateMonkeyBlue.jpg'),
+(10, 'Karate Monkey Blue Small', 'fullbike', 'Bike set ukuran small produksi Surly cocok untuk jalan perkotaan', 7800000, 'KarateMonkeyBlueSmall.jpg'),
+(11, 'Marathon Spike Tire', 'sparepaert', 'Ban dengan duri yang digunakan pada saat kondisi bersalju,produksi Schwalbe', 2300000, 'marathonSpikeTire.jpeg'),
+(12, 'Midnigth Surly Bike', 'fullbike', 'Bike set produksi Surly cocok digunakan pada velodrome dan jalanan perkotaan ', 74000000, 'midnigthSurlyBike.jpg'),
+(13, 'Mint Surly Bike', 'fullbike', 'Bike set produksi Surly cocok digunakan pada velodrome dan jalanan perkotaan ', 64000000, 'mintSurleyBike.jpg'),
+(14, 'Orange Surly Bike', 'fullbike', 'Bike set produksi Surly cocok digunakan pada velodrome dan jalanan perkotaan ', 67000000, 'orangeSurlyBike.jpg'),
+(15, 'TI Parts Paddle', 'sparepart', 'Pedal Produksi TI Parts', 879000, 'paddle.jpg'),
+(16, 'Red Ogre Surly', 'fullbike', 'Bike set produksi Surly cocok digunakan pada velodrome dan jalanan perkotaan ', 8900000, 'redOgreSurlyBike.jpg'),
+(17, 'Shimano Gear Crank', 'sparepart', 'Gear Crank produksi Shimano', 980000, 'shimanoGear.jpeg'),
+(18, 'Shimano Gear Set', 'sparepart', 'Gear Set produksi Shimano dengan fitur octalink', 1000000, 'shimanoGearSet.jpeg'),
+(19, 'Winter Tire Spike', 'sparepart', 'Ban Produksi Ice Spike Pro digunakan pada saat cuaca bersalju', 1500000, 'winterSpikeTire.jpeg');
 
 -- --------------------------------------------------------
 
@@ -120,7 +137,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `product_index`
 --
 ALTER TABLE `product_index`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
