@@ -52,18 +52,40 @@
   </div>
 
   <!-- tambah produk -->
-  <div class="row">
+  <div class="row ml-1">
     <a href="#" class="btn btn-primary btn-icon-split">
-      <span class="icon text-white-50">
-        <i class="fas fa-flag"></i>
+      <span class="icon text-white-10 mt-1">
+        <i class="fas fa-plus-square"></i>
       </span>
       <span class="text">Tambah Produk</span>
     </a>
   </div>
   <!-- end tambah produk -->
-
-
   <!-- end jumlah pesanan -->
+
+  <!-- start daftar produk -->
+  <div class="card shadow mb-4 mt-1">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Daftar Produk</h6>
+    </div>
+    <div class="card-body">
+      <!-- single product -->
+      <div class="card mb-4">
+        <!-- Card Header - Accordion -->
+        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+          <h6 class="m-0 font-weight-bold text-primary">Double Seat Bike</h6>
+        </a>
+        <!-- Card Content - Collapse -->
+        <div class="collapse" id="collapseCardExample">
+          <div class="card-body">
+            This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!
+          </div>
+        </div>
+        <!-- end single product -->
+      </div>
+    </div>
+  </div>
+  <!-- end datar produk -->
 
 </div>
 <!-- /.container-fluid -->
