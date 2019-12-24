@@ -86,8 +86,8 @@
           </thead>
           <tfoot>
             <tr>
-              <th>#</th>
-              <th>Nama Produk</th>
+              <th width=5%>#</th>
+              <th width=20%>Nama Produk</th>
               <th>Kategori</th>
               <th width=25%>deskripsi</th>
               <th>harga</th>
@@ -107,8 +107,13 @@
                 <td>
                   <img src="<?= base_url('assets/img/product/') . $pindex['gambar']; ?>" alt="" style="width: 100px;height: 100px;">
                 </td>
-                <td>
-                  ini buat btn
+                <td class="py-5">
+                  <a href="#" class="btn btn-primary btn-circle btn-sm mb-1">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="#" class="btn btn-danger btn-circle btn-sm">
+                    <i class="fas fa-trash"></i>
+                  </a>
                 </td>
 
               </tr>
