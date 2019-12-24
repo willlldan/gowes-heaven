@@ -144,7 +144,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" enctype="multipart/form-data" action="./tambah">
+        <form method="post" enctype="multipart/form-data" action="<?= base_url() ?>/admin/tambah">
           <div class="form-group">
             <label for="nama" class="col-form-label"></label>
             <input type="text" class="form-control" id="nama" placeholder="Nama Produk" name="nama" required>
@@ -161,24 +161,24 @@
             </select>
           </div>
           <div class="input-group">
-            <textarea class="form-control" aria-label="With textarea" name="deskripsi" placeholder="deskripsi"></textarea>
+            <textarea class="form-control" required name="deskripsi" placeholder="deskripsi"></textarea>
           </div>
-
-          <div class="input-group mb-3 mt-3">
+          <div class="input-group mt-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Rp</span>
             </div>
-            <input type="text" class="form-control" placeholder="harga" name="harga">
+            <input type="text" class="form-control" placeholder="harga" name="harga" id="harga" onkeyup="validasi()">
           </div>
+          <div id="inputHarga" class="text-danger ml-5 mt-1" style="display : none">inputan bukan angka </div>
 
-          <div class="input-group mb-3">
+          <div class="input-group mb-3 mt-3">
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="image">
               <label class="custom-file-label" name="image" for="image">Choose file</label>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Send message</button>
+            <button type="submit" class="btn btn-primary" id="btnSave">Send message</button>
           </div>
         </form>
       </div>

@@ -63,7 +63,7 @@
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this)
     modal.find('.modal-title').text(recipient)
-  })
+  });
 
   $('#image').on('change', function() {
     //get the file name
@@ -71,7 +71,20 @@
     var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
     //replace the "Choose a file" label
     $(this).next('.custom-file-label').html(cleanFileName);
-  })
+  });
+
+  function validasi() {
+    var harga = document.getElementById("harga").value;
+    var inputHarga = document.getElementById("inputHarga");
+    var btnSave = document.getElementById("btnSave");
+    if (isNaN(harga)) {
+      inputHarga.style.display = "block";
+      btnSave.setAttribute('disabled', 'true');
+    } else {
+      inputHarga.style.display = "none";
+      btnSave.removeAttribute('disabled');
+    }
+  }
 </script>
 
 </body>
