@@ -70,7 +70,7 @@
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">
-											<img src="<?= base_url('assets/img/gowes-heaven/') . $pindex['nama_gambar']; ?>" alt="" style="width: 250px;height: 250px;">
+											<img src="<?= base_url('assets/img/product/') . $pindex['gambar']; ?>" alt="" style="width: 250px;height: 250px;">
 											<div class="product-label">
 												<span class="sale">-30%</span>
 												<span class="new">NEW</span>
@@ -79,7 +79,7 @@
 										<div class="product-body">
 											<p class="product-category">Category</p>
 											<h3 class="product-name"><a href="#"><?= $pindex['nama'] ?></a></h3>
-											<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+											<h4 class="product-price">Rp. <?= $pindex['harga'] ?></h4>
 											<div class="product-rating">
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star"></i>
