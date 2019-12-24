@@ -58,9 +58,9 @@ class Admin extends CI_Controller
 			'kategori' => $this->input->post('kategori'),
 			'deskripsi' => $this->input->post('deskripsi'),
 			'harga' => $this->input->post('harga'),
-			'gambar' => $this->input->post('gambar'),
+			'gambar' => "Gambar"
 		);
-		$insert = $this->person->save($data);
+		$insert = $this->Admin_model->save($data);
 		echo json_encode(array("status" => TRUE));
 	}
 
