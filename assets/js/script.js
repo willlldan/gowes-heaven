@@ -1,38 +1,89 @@
-function tampilkanSemuaMenu() {
-    $.getJSON('productTest.json', function (data) {
-        let product = data.product;
-        $.each(product, function (i, data) {
-            $('#daftar-menu').append('<div class="col-md-4"><div class="card mb-3"><img src="img/gowes-heaven/' + data.gambar + '" class="card-img-top" ><div class="card-body"><h5 class="card-title">' + data.nama);
-        });
-    });
+var status;
+// start form tambah
 
-}
+var save_method; //for save method string
+var table;
+$(document).ready(function () {
+    $('#dataTable').DataTable();
+});
 
-tampilkanSemuaMenu();
+// tampil modal
+$('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('title') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text(recipient)
+});
 
-$('.nav-link').on('click', function () {
-    $('.nav-link').removeClass('active');
-    $(this).addClass('active');
+// ganti 'choose file....' di upload gambar
+$('#image').on('change', function () {
+    //get the file name
+    var fileName = $(this).val();
+    var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+    //replace the "Choose a file" label
+    $(this).next('.custom-file-label').html(cleanFileName);
+});
 
-    let kategori = $(this).html();
-    $('h1').html(kategori);
+function validasiKategori() {
+    var sel = document.getElementById("kategori");
+    var opt = sel.selectedIndex;
+    var inputKategori = document.getElementById("inputKategori");
 
-    if (kategori == 'All Menu') {
-        $('#daftar-menu').html('');
-        tampilkanSemuaMenu();
-        return;
+    if (opt == 0) {
+        inputKategori.style.display = "block";
+    } else {
+        inputKategori.style.display = "none";
+    }
+};
+
+function validasiHarga() {
+    var harga = document.getElementById("harga").value;
+    var inputHarga = document.getElementById("inputHarga");
+    var btnSave = document.getElementById("btnSave");
+    if (isNaN(harga)) {
+        inputHarga.style.display = "block";
+        btnSave.setAttribute('disabled', 'true');
+        return true;
+    } else {
+        inputHarga.style.display = "none";
+        btnSave.removeAttribute('disabled');
+    }
+};
+
+function validasi() {
+    var statusHarga;
+    var statusKategori;
+    var harga = document.getElementById("harga").value;
+    var sel = document.getElementById("kategori");
+    var opt = sel.selectedIndex;
+    var inputKategori = document.getElementById("inputKategori");
+    console.log(harga);
+    console.log(harga != null);
+    if (harga != "") {
+        if (isNaN(harga)) {
+            inputHarga.style.display = "block";
+            statusHarga = false;
+        } else {
+            inputHarga.style.display = "none";
+            statusHarga = true;
+        }
     }
 
-    $.getJSON('productTest.json', function (data) {
-        let product = data.product;
-        let content = '';
+    if (opt == 0) {
+        inputKategori.style.display = "block";
+        statusKategori = false;
+    } else {
+        inputKategori.style.display = "none";
+        statusKategori = true;
+    }
 
-        $.each(product, function (i, data) {
-            if (data.kategori == kategori.toLowerCase()) {
-                content += '<div class="col-md-4"><div class="card mb-3"><img src="img/gowes-heaven/' + data.gambar + '" class="card-img-top" ><div class="card-body"><h5 class="card-title">' + data.nama;
-            }
-        });
-        $('#daftar-menu').html(content);
-    });
+    if (statusHarga && statusKategori) {
+        btnSave.removeAttribute('disabled');
+    } else {
+        btnSave.setAttribute('disabled', 'true');
+    }
+}
 
-});
+// end form tambah

@@ -16,6 +16,7 @@ class Admin_model extends CI_Model
             "harga" => $this->input->post('harga'),
             "gambar"  => $image['file_name']
         ];
+
         return $this->db->insert('product_index', $data);
     }
 
