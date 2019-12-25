@@ -154,9 +154,9 @@
             </div>
             <select class="form-control" id="kategori" name="kategori" onclick="validasi()">
               <option selected>kategori</option>
-              <option value="1">fullbike</option>
-              <option value="2">sparepart</option>
-              <option value="3">aksesoris</option>
+              <option value="fullbike">fullbike</option>
+              <option value="sparepart">sparepart</option>
+              <option value="aksesoris">aksesoris</option>
             </select>
           </div>
           <div id="inputKategori" class="text-danger ml-1 mt-1" style="display : none">Pilih kategori !</div>

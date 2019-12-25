@@ -3,6 +3,7 @@ var status;
 
 var save_method; //for save method string
 var table;
+var base_url = "http://localhost/gowes-heaven/";
 $(document).ready(function () {
     $('#dataTable').DataTable();
 });
@@ -59,8 +60,6 @@ function validasi() {
     var sel = document.getElementById("kategori");
     var opt = sel.selectedIndex;
     var inputKategori = document.getElementById("inputKategori");
-    console.log(harga);
-    console.log(harga != null);
     if (harga != "") {
         if (isNaN(harga)) {
             inputHarga.style.display = "block";
@@ -84,6 +83,36 @@ function validasi() {
     } else {
         btnSave.setAttribute('disabled', 'true');
     }
+}
+
+function save() {
+    var formData = new FormData($('#form')[0]);
+    var url = base_url.concat('admin/tambah');
+    console.log(url);
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            console.log(data);
+            Swal.fire({
+                title: 'Success!',
+                text: 'Data berhasil ditambahkan',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            })
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+
+        }
+    })
+
+
 }
 
 // end form tambah

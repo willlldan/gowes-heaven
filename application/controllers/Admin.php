@@ -20,6 +20,7 @@ class Admin extends CI_Controller
 
 	public function tambah()
 	{
+		$status = false;
 		$data['title'] = 'Dashboard';
 		$this->load->model('Admin_model');
 		$config['upload_path'] = './assets/img/product/';
@@ -30,15 +31,29 @@ class Admin extends CI_Controller
 		$config['file_name'] = $_FILES['image']['name'];
 		$this->load->library('upload', $config);
 
-
 		if (!empty($_FILES['image']['name'])) {
 			if ($this->upload->do_upload('image')) {
 				$image = $this->upload->data();
-				$this->Admin_model->tambahDataProduk($image);
+				$status = $this->Admin_model->tambahDataProduk($image);
 			}
 		}
+		if ($status) {
+			$swal = "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@9'></script>" .
+				"<script src=" . base_url('assets/npm/dist/') . "sweetalert2.min.js'></script>" .
+				"<link rel='stylesheet' href=" . base_url('assets/npm/dist/') . "sweetalert2.min.css'>";
 
-		// redirect('admin');
+			echo $swal;
+			echo "<script>
+				Swal.fire({
+                title: 'Success!',
+                text: 'Data berhasil ditambahkan',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            }).then(function() {
+				window.location = '../admin';
+			});
+			</script>";
+		}
 	}
 
 	public function ajax_add()
