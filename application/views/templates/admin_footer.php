@@ -66,7 +66,7 @@
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this)
     modal.find('.modal-title').text(recipient)
-  })
+  });
 
   // ganti 'choose file....' di upload gambar
   $('#image').on('change', function() {
@@ -75,77 +75,19 @@
     var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
     //replace the "Choose a file" label
     $(this).next('.custom-file-label').html(cleanFileName);
-  })
-
-  // hapus kelas has-error
-  $("input").change(function() {
-    $(this).parent().parent().removeClass('has-error');
-    $(this).next().empty();
-  });
-  $("textarea").change(function() {
-    $(this).parent().parent().removeClass('has-error');
-    $(this).next().empty();
-  });
-  $("select").change(function() {
-    $(this).parent().parent().removeClass('has-error');
-    $(this).next().empty();
   });
 
-  // function tampil modal tambah produk
-  function add_produk() {
-    save_method = 'add';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Produk'); // Set Title to Bootstrap modal title
-  }
-
-  // function tambah produk 
-  function save() {
-    $('#btnSave').text('saving...'); //change button text
-    $('#btnSave').attr('disabled', true); //set button disable 
-    var url;
-
-    if (save_method == 'add') {
-      url = "<?php echo site_url('admin/ajax_add') ?>";
+  function validasi() {
+    var harga = document.getElementById("harga").value;
+    var inputHarga = document.getElementById("inputHarga");
+    var btnSave = document.getElementById("btnSave");
+    if (isNaN(harga)) {
+      inputHarga.style.display = "block";
+      btnSave.setAttribute('disabled', 'true');
     } else {
-      url = "<?php echo site_url('admin/ajax_update') ?>";
+      inputHarga.style.display = "none";
+      btnSave.removeAttribute('disabled');
     }
-
-    // ajax adding data to database
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: $('#form').serialize(),
-      dataType: "JSON",
-      success: function(data) {
-        console.log('masuk kesini');
-
-        if (data.status) //if success close modal and reload ajax table
-        {
-          $('#modal_form').modal('hide');
-          reload_table();
-        } else {
-          console.log('masuk kesini');
-          for (var i = 0; i < data.inputerror.length; i++) {
-            $('[name="' + data.inputerror[i] + '"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-            $('[name="' + data.inputerror[i] + '"]').next().text(data.error_string[i]); //select span help-block class set text error string
-          }
-        }
-        $('#btnSave').text('save'); //change button text
-        $('#btnSave').attr('disabled', false); //set button enable 
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        console.log(jqXHR);
-        console.log(textStatus);
-        console.log(errorThrown);
-        alert('Error adding / update data');
-        $('#btnSave').text('save'); //change button text
-        $('#btnSave').attr('disabled', false); //set button enable 
-
-      }
-    });
   }
 </script>
 
