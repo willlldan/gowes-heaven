@@ -53,7 +53,7 @@
 
   <!-- tambah produk -->
   <div class="row ml-1">
-    <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#exampleModal" data-title="Tambah Produk">
+    <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#formModal" data-title="Tambah Produk">
       <span class="icon text-white-10">
         <i class="fas fa-plus-square  mt-1"></i>
       </span>
@@ -107,7 +107,14 @@
                   <img src="<?= base_url('assets/img/product/') . $pindex['gambar']; ?>" alt="" style="width: 100px;height: 100px;">
                 </td>
                 <td class="py-5">
-                  <a href="#" class="btn btn-primary btn-circle btn-sm mb-1">
+                  <a href="#" class="btn btn-primary btn-circle btn-sm mb-1" data-toggle="modal" data-target="#formModal" data-title="Edit Produk" 
+                  data-idproduk="<?= $pindex['id'] ?>"
+                  data-nama="<?= $pindex['nama'] ?>"
+                  data-kategori="<?= $pindex['kategori'] ?>"
+                  data-deskripsi="<?= $pindex['deskripsi'] ?>"
+                  data-harga="<?= $pindex['deskripsi'] ?>"
+                  data-gambar="<?= $pindex['harga'] ?>"
+                  >
                     <i class="fas fa-edit"></i>
                   </a>
                   <a href="#" class="btn btn-danger btn-circle btn-sm">
@@ -133,7 +140,7 @@
 <!-- End of Main Content -->
 
 <!-- start modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -161,7 +168,7 @@
           </div>
           <div id="inputKategori" class="text-danger ml-1 mt-1" style="display : none">Pilih kategori !</div>
           <div class="input-group">
-            <textarea class="form-control mt-2" required name="deskripsi" placeholder="deskripsi"></textarea>
+            <textarea class="form-control mt-2" required id="deskripsi" name="deskripsi" placeholder="deskripsi"></textarea>
           </div>
           <div class="input-group mt-3">
             <div class="input-group-prepend">

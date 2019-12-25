@@ -9,13 +9,20 @@ $(document).ready(function () {
 });
 
 // tampil modal
-$('#exampleModal').on('show.bs.modal', function (event) {
+$('#formModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('title') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var title = button.data('title');
+    if(title=='Edit Produk') {
+        document.getElementById("nama").setAttribute('value', button.data('nama'));
+        // document.getElementById("kategori").setAttribute('value', button.data('kategori'));
+        document.getElementById("deskripsi").setAttribute('value', button.data('deskripsi'));
+        // document.getElementById("harga").setAttribute('value', button.data('harga'));
+        // document.getElementById("gambar").setAttribute('value', button.data('gambar'));
+        
+    }
+
     var modal = $(this)
-    modal.find('.modal-title').text(recipient)
+    modal.find('.modal-title').text(title)
 });
 
 // ganti 'choose file....' di upload gambar
@@ -83,6 +90,10 @@ function validasi() {
     } else {
         btnSave.setAttribute('disabled', 'true');
     }
+}
+
+function editModal() {
+
 }
 
 function save() {
