@@ -1,48 +1,48 @@
 
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('home/')?>">
-        <div class="sidebar-brand-icon rotate-n-15">
-         <i class="fas fa-bicycle"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Gowes User <sup></sup></div>
-      </a>
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('home/')?>">
+    <div class="sidebar-brand-icon rotate-n-15">
+     <i class="fas fa-bicycle"></i>
+   </div>
+   <div class="sidebar-brand-text mx-3">Gowes User <sup></sup></div>
+ </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
+ <!-- Divider -->
+ <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        <?=$user['name']?>
-      </div>
+ <!-- Heading -->
+ <div class="sidebar-heading">
+  <?=$user['name']?>
+</div>
 
 
-       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-user"></i>
-          <span>My Profile</span></a>
-      </li>
+<li class="nav-item">
+  <a class="nav-link" href="charts.html">
+    <i class="fas fa-fw fa-user"></i>
+    <span>My Profile</span></a>
+  </li>
 
-        <hr class="sidebar-divider">
+  <hr class="sidebar-divider">
 
-           <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
-          <i class="fas fa-fw fa-sign-out-alt"></i>
-          <span>Logout</span></a>
-      </li>
+  <li class="nav-item">
+    <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
+      <i class="fas fa-fw fa-sign-out-alt"></i>
+      <span>Logout</span></a>
+    </li>
 
 
     
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+      <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
 
-    </ul>
-    <!-- End of Sidebar -->
+  </ul>
+  <!-- End of Sidebar -->
