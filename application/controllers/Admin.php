@@ -37,6 +37,35 @@ class Admin extends CI_Controller
 				$status = $this->Admin_model->tambahDataProduk($image);
 			}
 		}
+		$text = "ditambahkan";
+		$this->alertTransaksi($status, $text);
+	}
+
+	public function edit($id)
+	{
+		$this->load->model('Admin_model');
+		$single = $this->admin_model->getSingleProduct($id);
+		$image = "";
+
+		if (!empty($_FILES['image']['name'])) {
+			$config['upload_path'] = './assets/img/product/';
+			$config['allowed_types'] = 'jpg|png|jpeg|gif';
+			$config['max_size'] = '3048';  //3MB max
+			$config['max_width'] = '4480'; // pixel
+			$config['max_height'] = '4480'; // pixel
+			$config['file_name'] = $_FILES['image']['name'];
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('image')) {
+				$image = $this->upload->data();
+				$image = $image['file_name'];
+			}
+		}
+
+		$status = $this->Admin_model->updateDataProduk($image, $id);
+	}
+
+	public function alertTransaksi($status, $text)
+	{
 		if ($status) {
 			$swal = "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@9'></script>" .
 				"<script src=" . base_url('assets/npm/dist/') . "sweetalert2.min.js'></script>" .
@@ -46,8 +75,24 @@ class Admin extends CI_Controller
 			echo "<script>
 				Swal.fire({
                 title: 'Success!',
-                text: 'Data berhasil ditambahkan',
+                text: 'Data berhasil " . $text . "!',
                 icon: 'success',
+                confirmButtonText: 'Cool'
+            }).then(function() {
+				window.location = '../admin';
+			});
+			</script>";
+		} else {
+			$swal = "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@9'></script>" .
+				"<script src=" . base_url('assets/npm/dist/') . "sweetalert2.min.js'></script>" .
+				"<link rel='stylesheet' href=" . base_url('assets/npm/dist/') . "sweetalert2.min.css'>";
+
+			echo $swal;
+			echo "<script>
+				Swal.fire({
+                title: 'Gagal!',
+                text: 'Data gagal " . $text . "!',
+                icon: 'error',
                 confirmButtonText: 'Cool'
             }).then(function() {
 				window.location = '../admin';
