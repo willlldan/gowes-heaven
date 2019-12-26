@@ -13,4 +13,12 @@ class Home extends CI_Controller
         $this->load->view('Home/index',$data);
         $this->load->view('templates/footer');
     }
+
+        public function contact()
+    {
+        $data['title'] = "Gowes Heaven";
+        $this->load->view('templates/header', $data);
+        $this->load->view('Home/contact',$data);
+        $this->load->view('templates/footer');
+    }
 }
