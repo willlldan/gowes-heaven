@@ -37,14 +37,13 @@ class Admin extends CI_Controller
 				$status = $this->Admin_model->tambahDataProduk($image);
 			}
 		}
-		$text = "ditambahkan";
-		$this->alertTransaksi($status, $text);
+		$this->alertTransaksi($status, "ditambahkan");
 	}
 
 	public function edit($id)
 	{
 		$this->load->model('Admin_model');
-		$single = $this->admin_model->getSingleProduct($id);
+		$single = $this->Admin_model->getSingleProduct($id);
 		$image = "";
 
 		if (!empty($_FILES['image']['name'])) {
@@ -62,6 +61,8 @@ class Admin extends CI_Controller
 		}
 
 		$status = $this->Admin_model->updateDataProduk($image, $id);
+
+		$this->alertTransaksi($status, "diubah");
 	}
 
 	public function alertTransaksi($status, $text)
@@ -79,7 +80,7 @@ class Admin extends CI_Controller
                 icon: 'success',
                 confirmButtonText: 'Cool'
             }).then(function() {
-				window.location = '../admin';
+				window.location = '" . base_url() . "/admin';
 			});
 			</script>";
 		} else {
@@ -95,7 +96,7 @@ class Admin extends CI_Controller
                 icon: 'error',
                 confirmButtonText: 'Cool'
             }).then(function() {
-				window.location = '../admin';
+				window.location = '" . base_url() . "/admin';
 			});
 			</script>";
 		}

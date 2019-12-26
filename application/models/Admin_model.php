@@ -47,10 +47,9 @@ class Admin_model extends CI_Model
             ];
         }
 
-
         $this->db->set($data);
         $this->db->where('id', $id);
-        return $this->db->update('barang');
+        return $this->db->update('product_index');
     }
 
     public function save($data)
