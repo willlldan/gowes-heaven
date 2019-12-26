@@ -8,21 +8,55 @@ $(document).ready(function () {
     $('#dataTable').DataTable();
 });
 
+function editForm() {
+
+}
+
 // tampil modal
 $('#formModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var title = button.data('title');
-    if(title=='Edit Produk') {
-        document.getElementById("nama").setAttribute('value', button.data('nama'));
-        // document.getElementById("kategori").setAttribute('value', button.data('kategori'));
-        document.getElementById("deskripsi").setAttribute('value', button.data('deskripsi'));
-        // document.getElementById("harga").setAttribute('value', button.data('harga'));
-        // document.getElementById("gambar").setAttribute('value', button.data('gambar'));
-        
+    var idparent = document.getElementById('idparent');
+    console.log(idparent.childElementCount);
+
+    console.log('ini tanpa tanda seru' + document.getElementById('idparent').hasChildNodes());
+    console.log('ini ditambah tanda seru' + !(document.getElementById('idparent').hasChildNodes()));
+
+    if (title == 'Edit Produk') {
+        var form = document.getElementById('form');
+        form.setAttribute('action', base_url + 'admin/edit/' + button.data('idproduk'));
+        $('#idproduk').val(button.data('idproduk'));
+        $('#nama').val(button.data('nama'));
+        $('#kategori').val(button.data('kategori'));
+        $('#deskripsi').val(button.data('deskripsi'));
+        $('#harga').val(button.data('harga'));
+        document.getElementById('image').setAttribute('value', base_url + button.data('gambar'));
+        // $('#image').setAttribute('value', 'abcd');
+        $('#image').next('.custom-file-label').html(button.data('gambar'));
+        $('#btnSave').html('Simpan');
+    } else {
+        console.log('masuk remove child nih');
+        var idform = document.getElementById('idproduk');
+        idform.parentNode.removeChild(idform);
     }
 
-    var modal = $(this)
-    modal.find('.modal-title').text(title)
+    console.log(idparent.childElementCount);
+    var modal = $(this);
+    modal.find('.modal-title').text(title);
+});
+
+$('#formModal').on('hidden.bs.modal', function () {
+    var idparent = document.getElementById('idparent');
+    if (idparent.childElementCount == 0) {
+        console.log('masuk sini slur, has child true');
+        var para = document.createElement('input');
+        para.setAttribute('name', 'id');
+        para.setAttribute('hidden', true);
+        para.setAttribute('id', 'idproduk');
+        idparent.appendChild(para);
+    } else {
+        console.log('masuk else pas tambah child, has child false');
+    }
 });
 
 // ganti 'choose file....' di upload gambar
