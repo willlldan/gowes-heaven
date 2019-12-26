@@ -43,7 +43,6 @@ class Admin extends CI_Controller
 	public function edit($id)
 	{
 		$this->load->model('Admin_model');
-		$single = $this->Admin_model->getSingleProduct($id);
 		$image = "";
 
 		if (!empty($_FILES['image']['name'])) {
@@ -65,6 +64,13 @@ class Admin extends CI_Controller
 		$this->alertTransaksi($status, "diubah");
 	}
 
+	public function hapus($id)
+	{
+		$this->load->model('Admin_model');
+		$status = $this->Admin_model->hapusData($id);
+		$this->alertTransaksi($status, "dihapus");
+	}
+
 	public function alertTransaksi($status, $text)
 	{
 		if ($status) {
@@ -80,7 +86,7 @@ class Admin extends CI_Controller
                 icon: 'success',
                 confirmButtonText: 'Cool'
             }).then(function() {
-				window.location = '" . base_url() . "/admin';
+				window.location = '" . base_url() . "admin';
 			});
 			</script>";
 		} else {
@@ -96,7 +102,7 @@ class Admin extends CI_Controller
                 icon: 'error',
                 confirmButtonText: 'Cool'
             }).then(function() {
-				window.location = '" . base_url() . "/admin';
+				window.location = '" . base_url() . "admin';
 			});
 			</script>";
 		}

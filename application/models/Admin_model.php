@@ -28,6 +28,11 @@ class Admin_model extends CI_Model
         return $this->db->insert('product_index', $data);
     }
 
+    public function hapusData($id)
+    {
+        return $this->db->delete('product_index', array('id' => $id));
+    }
+
     public function updateDataProduk($image, $id)
     {
         if ($image == "") {

@@ -110,7 +110,7 @@
                   <a href="#" class="btn btn-primary btn-circle btn-sm mb-1" data-toggle="modal" data-target="#formModal" data-title="Edit Produk" data-idproduk="<?= $pindex['id'] ?>" data-nama="<?= $pindex['nama'] ?>" data-kategori="<?= $pindex['kategori'] ?>" data-deskripsi="<?= $pindex['deskripsi'] ?>" data-harga="<?= $pindex['harga'] ?>" data-gambar="<?= $pindex['gambar']; ?>">
                     <i class="fas fa-edit"></i>
                   </a>
-                  <a href="#" class="btn btn-danger btn-circle btn-sm">
+                  <a href="<?= base_url(); ?>admin/hapus/<?= $pindex['id']; ?>" class="btn btn-danger btn-circle btn-sm btnHapus">
                     <i class="fas fa-trash"></i>
                   </a>
                 </td>
